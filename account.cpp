@@ -1,10 +1,10 @@
 #include "account.h"
 #include <iostream>
 
-Account::Account() : balance {0.0} {
+Account::Account() : balance{0.0} {
 }
 
-Account::Account(double balance) : balance {balance} {
+Account::Account(double balance) : balance{balance} {
 }
 
 double Account::getBalance() {
@@ -13,6 +13,10 @@ double Account::getBalance() {
 
 void Account::setBalance(double balance) {
     this->balance = balance;
+}
+
+void Account::deposit(double amount) {
+    balance += amount;
 }
 
 
@@ -24,10 +28,19 @@ void SavingsAccount::withdraw(double amount) {
     }
 
     setBalance(bal - amount);
-    std::cout << "Your new balance is: " << getBalance() << std::endl;
+    std::cout << "Your new balance is: $" << getBalance() << std::endl;
+}
+
+void SavingsAccount::print() {
+    std::cout << "Savings account ($" << getBalance() << ")" << std::endl;
 }
 
 
 void CheckingAccount::withdraw(double amount) {
     setBalance(getBalance() - amount);
+    std::cout << "Your new balance is: $" << getBalance() << std::endl;
+}
+
+void CheckingAccount::print() {
+    std::cout << "Checking account ($" << getBalance() << ")" << std::endl;
 }

@@ -1,3 +1,6 @@
+#ifndef ACCOUNT_H
+#define ACCOUNT_H
+
 class Account
 {
 private:
@@ -10,19 +13,26 @@ public:
     double getBalance();
     void setBalance(double balance);
 
+    virtual void print() = 0;
+
     virtual void withdraw(double amount) = 0;
+    void deposit(double amount);
 };
 
 class SavingsAccount : public Account
 {
 private:
 public:
-    void withdraw(double amount);
+    void print() override;
+    void withdraw(double amount) override;
 };
 
 class CheckingAccount : public Account
 {
 private:
 public:
-    void withdraw(double amount);
+    void print() override;
+    void withdraw(double amount) override;
 };
+
+#endif

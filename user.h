@@ -1,6 +1,9 @@
 #ifndef USER_H
 #define USER_H
 
+#include "account.h"
+#include <vector>
+
 #include <iostream>
 #include <string>
 #include <string_view>
@@ -12,14 +15,17 @@ private:
     std::string name;
     std::string username;
     std::string password;
+    std::vector<Account*> accounts;
 
 public:
     User(unsigned int id, std::string_view name, std::string_view username, std::string_view password);
-    ~User();
+    virtual ~User();
+    unsigned int getId();
     std::string_view getName();
     std::string_view getUsername();
     int login(std::string_view password);
-    void greet();
+    std::vector<Account*>& getAccounts();
+    virtual void greet() = 0;
 };
 
 #endif
