@@ -124,7 +124,7 @@ void Bank::customerDashboard() {
                 break;
             }
 
-            std::cout << "Enter amount to withdraw ($$.$$): ";
+            std::cout << "Enter amount to withdraw: ";
             double amount;
             std::cin >> amount;
 
@@ -136,5 +136,45 @@ void Bank::customerDashboard() {
 }
 
 void Bank::adminDashboard() {
-    // TODO
+    int option = -1;
+
+    while (option != 3) {
+        std::cout << "-------" << std::endl;
+        std::cout << "1: View all customers" << std::endl;
+        std::cout << "2: View all accounts" << std::endl;
+        std::cout << "3: Exit" << std::endl;
+        std::cout << "-------" << std::endl;
+        std::cout << "Select an option: ";
+
+        std::cin >> option;
+
+        switch (option) {
+        case 1: {
+            if (users.empty()) {
+                std::cerr << "There are no users at this bank." << std::endl;
+                break;
+            }
+
+            for (int i = 0; i < users.size(); i++) {
+                std::cout << i << ": " << users[i]->getName() << std::endl;
+            }
+            break;
+        }
+        case 2: {
+            for (int i = 0; i < users.size(); i++) {
+                std::cout << i << ": " << users[i]->getName() << std::endl;
+                auto accounts = users[i]->getAccounts();
+
+                if (accounts.empty()) {
+                    std::cerr << "  This user has no accounts open." << std::endl;
+                }
+
+                for (int j = 0; j < accounts.size(); j++) {
+                    std::cout << "  " << j << ": ";
+                    accounts[j]->print();
+                }
+            }
+        }
+        }
+    }
 }
