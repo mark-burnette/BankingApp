@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import "./Users.css";
 
 export interface UserModel {
@@ -8,13 +9,13 @@ export interface UserModel {
 	role: string;
 }
 
-async function fetchUsers() {
-	const response = await fetch("http://localhost:8000/users");
+async function fetchUsers(id: string | undefined) {
+	const response = await (id == undefined
+		? fetch("http://localhost:8000/users")
+		: fetch(`http://localhost:8000/users/${id}`));
 	if (!response.ok) {
-		throw new Error(`HTTP Error: $(response.status)`);
+		throw new Error(`HTTP Error: ${response.status}`);
 	}
-
-	console.log(response);
 
 	return response.json();
 }
@@ -24,10 +25,15 @@ function Users() {
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState<string | null>(null);
 
+	const { id } = useParams<"id">();
+
 	useEffect(() => {
-		fetchUsers()
-			.then((data) => setUsers(data.users))
-			.catch(setError)
+		fetchUsers(id)
+			.then((data) => {
+				if (id === undefined) setUsers(data.users);
+				else setUsers([data]);
+			})
+			.catch((error) => setError(error.message))
 			.finally(() => setLoading(false));
 	}, []);
 
