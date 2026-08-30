@@ -30,7 +30,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    flex: 1;
+    flex: auto;
 }
 
 .avatar {
@@ -47,25 +47,135 @@
     font-weight: 600;
 }
 
-.user-name {
-    font-weight: 600;
-}
-
-.username {
-    margin-top: 3px;
-    color: #888;
-    font-size: 13px;
-}
-
-.user-role {
-    width: 140px;
-    color: #555;
-    font-size: 14px;
-}
-
 .user-id {
     width: 180px;
     color: #999;
     font-family: monospace;
     font-size: 12px;
+}
+
+.user-name,
+.user-username,
+.user-role {
+    font-family: inherit;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    outline: none;
+
+    transition:
+        border-color 0.15s,
+        background 0.15s,
+        box-shadow 0.15s;
+}
+
+.user-name {
+    display: block;
+    width: 100%;
+
+    padding: 2px 5px;
+
+    color: #303840;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.user-username {
+    display: block;
+    width: 100%;
+
+    margin-top: 2px;
+    padding: 2px 5px;
+
+    color: #888;
+    font-size: 12px;
+}
+
+.user-name:hover,
+.user-username:hover,
+.user-role:hover {
+    background: #f7f8f8;
+    border-color: #e0e4e6;
+}
+
+.user-name:focus,
+.user-username:focus,
+.user-role:focus {
+    background: white;
+    border-color: #145c4a;
+    box-shadow: 0 0 0 2px rgba(20, 92, 74, 0.1);
+}
+
+/* ---------- Role select ---------- */
+
+.user-role {
+    width: 130px;
+    padding: 8px 28px 8px 10px;
+
+    color: #555;
+    font-size: 13px;
+
+    cursor: pointer;
+}
+
+/* ---------- Update button ---------- */
+
+.update-button,
+.delete-button {
+    padding: 8px 14px;
+    border-radius: 6px;
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s,
+        border-color 0.15s,
+        color 0.15s,
+        transform 0.1s;
+}
+
+.update-button {
+    margin-left: 12px;
+    border: 1px solid #b8d5cc;
+    background: #eef6f3;
+    color: #145c4a;
+}
+
+.delete-button {
+    margin-left: 8px;
+
+    border: 1px solid #e5b4b4;
+    background: white;
+    color: #b42318;
+}
+
+.update-button:hover {
+    background: #145c4a;
+    border-color: #145c4a;
+    color: white;
+}
+
+.delete-button:hover {
+    background: #b42318;
+    border-color: #b42318;
+    color: white;
+}
+
+.update-button:active,
+.delete-button:active {
+    transform: scale(0.97);
+}
+
+.update-button:focus-visible {
+    outline: 3px solid rgba(20, 92, 74, 0.2);
+    outline-offset: 2px;
+}
+
+.delete-button:focus-visible {
+    outline: 3px solid rgba(180, 35, 24, 0.2);
+    outline-offset: 2px;
 }
