@@ -1,5 +1,6 @@
 from bson import ObjectId
-from database import user_collection, ReturnDocument
+from database import user_collection
+from pymongo import ReturnDocument
 
 
 async def get_user(id: str):
