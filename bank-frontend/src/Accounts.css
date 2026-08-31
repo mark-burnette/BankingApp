@@ -1,0 +1,236 @@
+/* ---------- Accounts Page ---------- */
+
+.accounts-page {
+    min-height: 100vh;
+    background: #f5f7f9;
+    color: #18212b;
+}
+
+.accounts-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 48px 32px;
+}
+
+/* ---------- Header ---------- */
+
+.accounts-header {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+
+    margin-bottom: 32px;
+}
+
+.accounts-header h1 {
+    margin: 0;
+
+    font-size: 32px;
+    letter-spacing: -0.8px;
+}
+
+.eyebrow {
+    margin: 0 0 8px;
+
+    color: #7d858d;
+    font-size: 13px;
+}
+
+.subtitle {
+    margin: 8px 0 0;
+
+    color: #747c84;
+    font-size: 15px;
+}
+
+.primary-button {
+    border: 0;
+    border-radius: 8px;
+
+    background: #145c4a;
+    color: white;
+
+    padding: 12px 18px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+.primary-button:hover {
+    background: #104c3e;
+}
+
+/* ---------- Account List ---------- */
+
+.account-list {
+    background: white;
+    border: 1px solid #e7eaed;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.account-row {
+    min-height: 96px;
+    padding: 18px 24px;
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    border-bottom: 1px solid #edf0f2;
+}
+
+.account-row:last-child {
+    border-bottom: 0;
+}
+
+/* ---------- Account Icon ---------- */
+
+.account-icon {
+    width: 46px;
+    height: 46px;
+    flex-shrink: 0;
+
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.account-icon.checking {
+    background: #e8f0ff;
+    color: #3566b8;
+}
+
+.account-icon.savings {
+    background: #e7f5ee;
+    color: #287653;
+}
+
+/* ---------- Account Information ---------- */
+
+.account-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    flex: 1;
+}
+
+.account-name {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.account-number {
+    color: #9299a0;
+    font-size: 12px;
+}
+
+/* ---------- Balance ---------- */
+
+.account-balance {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 5px;
+}
+
+.account-balance span {
+    color: #9299a0;
+    font-size: 11px;
+}
+
+.account-balance strong {
+    font-size: 16px;
+    font-weight: 650;
+}
+
+/* ---------- Empty State ---------- */
+
+.empty-accounts {
+    padding: 64px 24px;
+
+    background: white;
+    border: 1px solid #e7eaed;
+    border-radius: 12px;
+
+    text-align: center;
+}
+
+.empty-icon {
+    width: 42px;
+    height: 42px;
+    margin: 0 auto 16px;
+
+    border-radius: 10px;
+
+    background: #eef5f2;
+    color: #145c4a;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+}
+
+.empty-accounts h2 {
+    margin: 0 0 8px;
+
+    font-size: 16px;
+}
+
+.empty-accounts p {
+    margin: 0;
+
+    color: #9299a0;
+    font-size: 13px;
+}
+
+/* ---------- Status / Errors ---------- */
+
+.accounts-status,
+.accounts-error {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 48px 32px;
+
+    font-size: 14px;
+}
+
+.accounts-error {
+    color: #a33a3a;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 600px) {
+    .accounts-container {
+        padding: 28px 16px;
+    }
+
+    .accounts-header {
+        align-items: start;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .accounts-header h1 {
+        font-size: 26px;
+    }
+
+    .account-row {
+        padding: 16px;
+    }
+
+    .account-balance strong {
+        font-size: 14px;
+    }
+}

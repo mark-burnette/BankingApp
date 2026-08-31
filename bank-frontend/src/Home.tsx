@@ -1,3 +1,5 @@
+import "./Home.css";
+
 function Home() {
 	return (
 		<div className="home">
@@ -8,15 +10,15 @@ function Home() {
 				</div>
 
 				<nav>
-					<a href="/">Overview</a>
+					<a href="/users">Users</a>
 					<a href="/accounts">Accounts</a>
 					<a href="/transactions">Transactions</a>
 				</nav>
 
 				<div className="profile">
-					<div className="avatar">JD</div>
-					<span>John Doe</span>
-					<span className="chevron">⌄</span>
+					<nav>
+						<a href="/login">Login</a>
+					</nav>
 				</div>
 			</header>
 
