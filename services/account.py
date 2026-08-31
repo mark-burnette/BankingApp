@@ -1,5 +1,5 @@
 from bson import ObjectId, Decimal128
-from database import account_collection
+from database import user_collection, account_collection
 from models.account import *
 
 
@@ -22,8 +22,8 @@ async def get_accounts():
     return accounts
 
 
-async def get_accounts_for_user(user: str):
-    accounts = await account_collection.find({"user": user}).to_list()
+async def get_accounts_for_user(user_id: str):
+    accounts = await account_collection.find({"user": user_id}).to_list()
     for account in accounts:
         account["balance"] = account["balance"].to_decimal()
     return accounts
